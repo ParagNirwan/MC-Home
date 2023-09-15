@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480828878324",
+    "project_id": "mc-home-a8367",
+    "storage_bucket": "mc-home-a8367.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480828878324:android:d0df277cecd16a3faf1da1",
+        "android_client_info": {
+          "package_name": "com.shrag.mchome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480828878324-ve77dmi7l2s1a4lsp5drpq699ufe52ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxsJZ0O-q96im1mTuBG-rv878Du9B776M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480828878324-ve77dmi7l2s1a4lsp5drpq699ufe52ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
