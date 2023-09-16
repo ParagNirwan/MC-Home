@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,12 +22,13 @@ public class login extends AppCompatActivity {
     Button button;
     EditText email,password;
     FirebaseAuth auth;
-
+TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        String emailRegex = "[A-Za-z0-9+_-]+@[a-z]+\\.+[a-z]";
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.button);
         email = findViewById(R.id.editTextTextEmailAddress);
@@ -39,13 +41,13 @@ public class login extends AppCompatActivity {
                 String Password = password.getText().toString();
 
                 if((TextUtils.isEmpty(Email))){
-                    Toast.makeText(login.this,"Please enter your email",Toast.LENGTH_SHORT);
+                    email.setError("Email cannot be blank");
+                    Toast.makeText(login.this,"Please enter your email",Toast.LENGTH_SHORT).show();
                 }
                 else if((TextUtils.isEmpty(Password))){
-                    Toast.makeText(login.this,"Please enter your password",Toast.LENGTH_SHORT);
-                } else if (!Email.matches("^(.+)@(\\\\S+)$")) {
-                   email.setError("Invalid Email");
-                }else if(password.length()<8){
+                    password.setError("Password cannot be blank");
+                    Toast.makeText(login.this,"Please enter your password",Toast.LENGTH_SHORT).show();
+                } else if(password.length()<8){
                     password.setError("Password length too short");
                 }else{
                     auth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -60,7 +62,7 @@ public class login extends AppCompatActivity {
                                     Toast.makeText(login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }else{
-                                Toast.makeText(login.this,task.getException().getMessage(),Toast.LENGTH_SHORT);
+                                Toast.makeText(login.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -69,6 +71,7 @@ public class login extends AppCompatActivity {
 
             }
         });
+
     }
 
 
